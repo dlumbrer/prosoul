@@ -104,3 +104,7 @@ class AssessmentForm(forms.Form):
         self.fields['from_date'] = forms.DateField(label='From date', widget=widget_date_from)
         self.fields['to_date'] = forms.DateField(label='To date', widget=widget_date_to, initial=str_to_datetime(
             "2100-01-01"))
+
+        multiple_assess_options = [('4', 'Four months'), ('6', 'Six months'), ('12', 'Annual')]
+        self.fields['assess_each'] = forms.ChoiceField(label='Calcuate assessment each:', required=True,
+                                                       widget=widget_select, choices=multiple_assess_options)
